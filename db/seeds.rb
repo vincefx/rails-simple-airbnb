@@ -7,3 +7,17 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+puts "Cleaning Database..."
+Flat.destroy_all
+attributes = [
+  { name: "Epicure", address: "Paris", description: "french", price_per_night: 10, number_of_guests: 10 },
+  { name: "Lucas", address: "Ici", description: "chinese", price_per_night: 10, number_of_guests: 10 },
+  { name: "Aueiane", address: "La bas", description: "italian", price_per_night: 10, number_of_guests: 10 },
+  { name: "Anais", address: "Loin", description: "japanese", price_per_night: 10, number_of_guests: 10 },
+  { name: "Vince", address: "A cote", description: "belgian", price_per_night: 10, number_of_guests: 10 }
+]
+attributes.each do |attribute|
+  flat = Flat.create(attribute)
+  puts "#{flat.name} created !"
+end
+puts "#{Flat.count} created !"
